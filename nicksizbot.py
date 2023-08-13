@@ -25,13 +25,13 @@ else:
 	quo = req
 
 # Yandex Translate API Key (örnek: trnsl.1.1.20190224T015610Z.47h8eba1d2c35f6g.59a2b3030eaae8611751e6a68c231cc83d597c07)
-transkey = ""
+transkey = "trnsl.1.1.20190224T015610Z.47h8eba1d2c35f6g.59a2b3030eaae8611751e6a68c231cc83d597c07"
 
 # Yandex SpeechKit API Key (örnek: 4bcd3fgh-1jkl-mn0p-qr5t-uvwxyz123456)
-ttskey = u""
+ttskey = u"4bcd3fgh-1jkl-mn0p-qr5t-uvwxyz123456"
 
 # Telegram Bot API Token (örnek: 123456789:aBCdeFGHiJKLmn_pQrsTUv128qKUm9yGlNBg)
-TOKEN = ""
+TOKEN = "6486031060:AAECk44kVjf4lsUhfCNjv7ehbPB1vum_uag"
 
 def start(bot, update):
     update.message.reply_text('Merhaba!')
