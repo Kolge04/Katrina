@@ -25,10 +25,6 @@ else:
 	quo = req
 
 # Yandex Translate API Key (örnek: trnsl.1.1.20190224T015610Z.47h8eba1d2c35f6g.59a2b3030eaae8611751e6a68c231cc83d597c07)
-transkey = "trnsl.1.1.20190224T015610Z.47h8eba1d2c35f6g.59a2b3030eaae8611751e6a68c231cc83d597c07"
-
-# Yandex SpeechKit API Key (örnek: 4bcd3fgh-1jkl-mn0p-qr5t-uvwxyz123456)
-ttskey = u"4bcd3fgh-1jkl-mn0p-qr5t-uvwxyz123456"
 
 # Telegram Bot API Token (örnek: 123456789:aBCdeFGHiJKLmn_pQrsTUv128qKUm9yGlNBg)
 TOKEN = "6486031060:AAECk44kVjf4lsUhfCNjv7ehbPB1vum_uag"
@@ -450,15 +446,7 @@ def hava(sehir):
 	txtx = txt.split(b"\n")[0] + b"\n" + txtx
 	return txtx.decode('utf-8')
 
-# Girilen metne göre çeviri yapar
-def cevir(dil,cumle):
-	temp = quo.quote(cumle.encode("utf8"))
-	temp = ''.join(temp).replace("?","%3F")
-	temp = "https://translate.yandex.net/api/v1.5/tr.json/translate?key="+transkey+"&lang="+dil+"&text="+temp
-	temp = conn(temp).read()
-	temp = json.loads(temp.decode("utf8")).get('text')[0]
-	return temp
-
+# 
 # Arama motorları için arama linki oluşturur
 def arama(cmd,cumle):
 	res = cumle
@@ -498,13 +486,6 @@ def arasite(cmd):
 def arafiltre(txt):
 	return txt.replace("[","").replace("]","").replace("(","").replace(")","").replace("{","").replace("}","");
 
-# Metinden ses üretir
-def tts(update,txt):
-	f = quo.quote(txt.replace("&","ve").encode("utf8"))
-	s = u"oksana" # Konuşan ses
-	f = conn(u"https://tts.voicetech.yandex.net/generate?key="+ttskey+u"&text="+txt+u"&format=opus&lang=tr-TR&speaker="+spk+u"&speed=0.8")
-	update.message.reply_voice(voice=f)
-	f.close()
 
 """
 	Belirtilen linklere bağlanmak için gerekli başlıkları
